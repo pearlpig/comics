@@ -8,6 +8,11 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+func main() {
+	go service()
+	app()
+}
+
 func ExampleScrape() {
 	// Request the HTML page.
 	res, err := http.Get("http://metalsucks.net")
@@ -32,8 +37,4 @@ func ExampleScrape() {
 		title := s.Find("i").Text()
 		fmt.Printf("Review %d: %s - %s\n", i, band, title)
 	})
-}
-
-func main() {
-	ExampleScrape()
 }
